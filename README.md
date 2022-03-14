@@ -1,24 +1,21 @@
-# vue2-mobile-template
+## :blue_heart::blue_heart:  Vue2移动端模板
 
-## Project setup
-```
-yarn install
-```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
+
+#### :sweat_drops: Init(初始化项目)
+
+```ABAP
+pnpm install
 ```
 
-### Compiles and minifies for production
-```
-yarn build
+#### :sweat_drops:  Run(运行)
+
+```ABAP
+pnpm dev
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+#### :sweat_drops:  Build(打包)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```ABAP
+pnpm build
+```
