@@ -19,7 +19,7 @@ specifiers:
   postcss-px-to-viewport: ^1.1.1
   sass: ^1.26.5
   sass-loader: ^8.0.2
-  vant: ^3.4.6
+  vant: 2.12.30
   vconsole: ^3.12.1
   vue: ^2.6.11
   vue-router: ^3.2.0
@@ -31,7 +31,7 @@ dependencies:
   axios: registry.npmmirror.com/axios/0.26.1
   core-js: registry.npmmirror.com/core-js/3.21.1
   postcss-px-to-viewport: registry.npmmirror.com/postcss-px-to-viewport/1.1.1
-  vant: registry.npmmirror.com/vant/3.4.6_vue@2.6.14
+  vant: registry.npmmirror.com/vant/2.12.30_vue@2.6.14
   vconsole: registry.npmmirror.com/vconsole/3.12.1
   vue: registry.npmmirror.com/vue/2.6.14
   vue-router: registry.npmmirror.com/vue-router/3.5.3
@@ -1483,7 +1483,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: registry.npmmirror.com/regenerator-runtime/0.13.9
-    dev: true
 
   registry.npmmirror.com/@babel/template/7.16.7:
     resolution: {integrity: sha512-I8j/x8kHUrbYRTUxXrrMbfCa7jxkE7tZre39x3kjr9hvI82cK1FfqLygotcWN5kdPGWcLdWMHpSBavse5tWw3w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/template/-/template-7.16.7.tgz}
@@ -1854,17 +1853,10 @@ packages:
       '@popperjs/core': registry.npmmirror.com/@popperjs/core/2.11.3
     dev: false
 
-  registry.npmmirror.com/@vant/use/1.3.6:
-    resolution: {integrity: sha512-3z+nywPaV2F5BdJO7RQxWlgfzJeEOmViD2yHMb7Tg+R4NR/7iQskqW8v2Cnv9FWSJgTOSHlcr7UzeLpiTAP4HA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vant/use/-/use-1.3.6.tgz}
-    name: '@vant/use'
-    version: 1.3.6
-    dev: false
-
   registry.npmmirror.com/@vue/babel-helper-vue-jsx-merge-props/1.2.1:
     resolution: {integrity: sha512-QOi5OW45e2R20VygMSNhyQHvpdUwQZqGPc748JLGCYEy+yp8fNFNdbNIGAgZmi9e+2JHPd6i6idRuqivyicIkA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-1.2.1.tgz}
     name: '@vue/babel-helper-vue-jsx-merge-props'
     version: 1.2.1
-    dev: true
 
   registry.npmmirror.com/@vue/babel-helper-vue-transform-on/1.0.2:
     resolution: {integrity: sha512-hz4R8tS5jMn8lDq6iD+yWL6XNB699pGIVLk7WSJnn1dbpjaazsjZQkieJoRX6gW5zpYSCFqQ7jUquPNY65tQYA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/babel-helper-vue-transform-on/-/babel-helper-vue-transform-on-1.0.2.tgz}
@@ -2873,7 +2865,7 @@ packages:
     name: axios
     version: 0.26.1
     dependencies:
-      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.9_debug@4.3.3
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.9
     transitivePeerDependencies:
       - debug
     dev: false
@@ -5644,9 +5636,8 @@ packages:
       readable-stream: registry.npmmirror.com/readable-stream/2.3.7
     dev: true
 
-  registry.npmmirror.com/follow-redirects/1.14.9_debug@4.3.3:
+  registry.npmmirror.com/follow-redirects/1.14.9:
     resolution: {integrity: sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.14.9.tgz}
-    id: registry.npmmirror.com/follow-redirects/1.14.9
     name: follow-redirects
     version: 1.14.9
     engines: {node: '>=4.0'}
@@ -5655,8 +5646,6 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
-    dependencies:
-      debug: registry.npmmirror.com/debug/4.3.3
 
   registry.npmmirror.com/for-in/1.0.2:
     resolution: {integrity: sha512-7EwmXrOjyL+ChxMhmG5lnW9MPt1aIeZEwKhQzoBUdTV0N3zuwWDZYVJatDvZ2OyzPUvdIAZDsCetk3coyMfcnQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/for-in/-/for-in-1.0.2.tgz}
@@ -6312,7 +6301,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: registry.npmmirror.com/eventemitter3/4.0.7
-      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.9_debug@4.3.3
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.9
       requires-port: registry.npmmirror.com/requires-port/1.0.0
     transitivePeerDependencies:
       - debug
@@ -9337,7 +9326,6 @@ packages:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz}
     name: regenerator-runtime
     version: 0.13.9
-    dev: true
 
   registry.npmmirror.com/regenerator-transform/0.14.5:
     resolution: {integrity: sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/regenerator-transform/-/regenerator-transform-0.14.5.tgz}
@@ -11073,18 +11061,20 @@ packages:
       spdx-expression-parse: registry.npmmirror.com/spdx-expression-parse/3.0.1
     dev: true
 
-  registry.npmmirror.com/vant/3.4.6_vue@2.6.14:
-    resolution: {integrity: sha512-Ol1xhEXn2wjBAWqCyr4/0EKTCQEYbAzKyOP+bKYIWl+fbJXme8Aza5soeKvWA2KD9ZBU0qS7yBVGpr+76xUEXQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vant/-/vant-3.4.6.tgz}
-    id: registry.npmmirror.com/vant/3.4.6
+  registry.npmmirror.com/vant/2.12.30_vue@2.6.14:
+    resolution: {integrity: sha512-kvbG+X5ZdHxjWELalsoIP0T+LMAZZ/5ITVdETsvrQAycvcPISNK+0eO0wT+kVRLfwBMEvuljWSJGOWisDObJRA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vant/-/vant-2.12.30.tgz}
+    id: registry.npmmirror.com/vant/2.12.30
     name: vant
-    version: 3.4.6
+    version: 2.12.30
     peerDependencies:
-      vue: ^3.0.0
+      vue: '>= 2.6.0'
     dependencies:
+      '@babel/runtime': registry.npmmirror.com/@babel/runtime/7.17.2
       '@vant/icons': registry.npmmirror.com/@vant/icons/1.7.3
       '@vant/popperjs': registry.npmmirror.com/@vant/popperjs/1.1.0
-      '@vant/use': registry.npmmirror.com/@vant/use/1.3.6
+      '@vue/babel-helper-vue-jsx-merge-props': registry.npmmirror.com/@vue/babel-helper-vue-jsx-merge-props/1.2.1
       vue: registry.npmmirror.com/vue/2.6.14
+      vue-lazyload: registry.npmmirror.com/vue-lazyload/1.2.3
     dev: false
 
   registry.npmmirror.com/vary/1.1.2:
@@ -11153,6 +11143,12 @@ packages:
     name: vue-hot-reload-api
     version: 2.3.4
     dev: true
+
+  registry.npmmirror.com/vue-lazyload/1.2.3:
+    resolution: {integrity: sha512-DC0ZwxanbRhx79tlA3zY5OYJkH8FYp3WBAnAJbrcuoS8eye1P73rcgAZhyxFSPUluJUTelMB+i/+VkNU/qVm7g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-lazyload/-/vue-lazyload-1.2.3.tgz}
+    name: vue-lazyload
+    version: 1.2.3
+    dev: false
 
   registry.npmmirror.com/vue-loader/15.9.8_679359cdb69c218f2f8f476b2ba08796:
     resolution: {integrity: sha512-GwSkxPrihfLR69/dSV3+5CdMQ0D+jXg8Ma1S4nQXKJAznYFX14vHdc/NetQc34Dw+rBbIJyP7JOuVb9Fhprvog==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-loader/-/vue-loader-15.9.8.tgz}

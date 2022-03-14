@@ -6,17 +6,17 @@ import store from './store'
 import Vant from 'vant'
 import 'vant/lib/index.css'
 
-Vue.config.productionTip = false
-
-import iphoneXBottom from '@/mixins/iphoneXBottomSetAside'
-
-// mixin处理iphone的底部
-Vue.mixin(iphoneXBottom)
-
 // 引入Vconsole
 import Vconsole from 'vconsole'
 const vConsole = new Vconsole()
+import iphoneXBottom from '@/mixins/iphoneXBottomSetAside'
+
+Vue.config.productionTip = false
+
+// mixin处理iphone的底部
+Vue.mixin(iphoneXBottom)
 Vue.use(vConsole)
+Vue.use(Vant)
 
 new Vue({
   router,
