@@ -7,6 +7,7 @@ specifiers:
   '@vue/cli-plugin-vuex': ~4.5.15
   '@vue/cli-service': ~4.5.15
   '@vue/eslint-config-standard': ^5.1.2
+  axios: ^0.26.1
   babel-eslint: ^10.1.0
   core-js: ^3.6.5
   eslint: ^6.7.2
@@ -27,6 +28,7 @@ specifiers:
   vuex-persistedstate: ^4.1.0
 
 dependencies:
+  axios: registry.npmmirror.com/axios/0.26.1
   core-js: registry.npmmirror.com/core-js/3.21.1
   postcss-px-to-viewport: registry.npmmirror.com/postcss-px-to-viewport/1.1.1
   vant: registry.npmmirror.com/vant/3.4.6_vue@2.6.14
@@ -2866,6 +2868,16 @@ packages:
     version: 1.11.0
     dev: true
 
+  registry.npmmirror.com/axios/0.26.1:
+    resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/axios/-/axios-0.26.1.tgz}
+    name: axios
+    version: 0.26.1
+    dependencies:
+      follow-redirects: registry.npmmirror.com/follow-redirects/1.14.9_debug@4.3.3
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   registry.npmmirror.com/babel-eslint/10.1.0_eslint@6.8.0:
     resolution: {integrity: sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/babel-eslint/-/babel-eslint-10.1.0.tgz}
     id: registry.npmmirror.com/babel-eslint/10.1.0
@@ -5645,7 +5657,6 @@ packages:
         optional: true
     dependencies:
       debug: registry.npmmirror.com/debug/4.3.3
-    dev: true
 
   registry.npmmirror.com/for-in/1.0.2:
     resolution: {integrity: sha512-7EwmXrOjyL+ChxMhmG5lnW9MPt1aIeZEwKhQzoBUdTV0N3zuwWDZYVJatDvZ2OyzPUvdIAZDsCetk3coyMfcnQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/for-in/-/for-in-1.0.2.tgz}
