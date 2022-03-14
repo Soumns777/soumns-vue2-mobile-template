@@ -5,7 +5,7 @@
 #### :sweat_drops: Init(初始化项目)
 
 ```ABAP
-pnpm install
+pnpm i
 ```
 
 #### :sweat_drops:  Run(运行)
