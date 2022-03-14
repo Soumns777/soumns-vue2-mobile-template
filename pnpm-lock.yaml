@@ -18,6 +18,7 @@ specifiers:
   postcss-px-to-viewport: ^1.1.1
   sass: ^1.26.5
   sass-loader: ^8.0.2
+  vconsole: ^3.12.1
   vue: ^2.6.11
   vue-router: ^3.2.0
   vue-template-compiler: ^2.6.11
@@ -27,6 +28,7 @@ specifiers:
 dependencies:
   core-js: registry.npmmirror.com/core-js/3.21.1
   postcss-px-to-viewport: registry.npmmirror.com/postcss-px-to-viewport/1.1.1
+  vconsole: registry.npmmirror.com/vconsole/3.12.1
   vue: registry.npmmirror.com/vue/2.6.14
   vue-router: registry.npmmirror.com/vue-router/3.5.3
   vuex: registry.npmmirror.com/vuex/3.6.2_vue@2.6.14
@@ -3882,6 +3884,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  registry.npmmirror.com/copy-text-to-clipboard/3.0.1:
+    resolution: {integrity: sha512-rvVsHrpFcL4F2P8ihsoLdFHmd404+CMg71S756oRSeQgqk51U3kicGdnvfkrxva0xXH92SjGS62B0XIJsbh+9Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/copy-text-to-clipboard/-/copy-text-to-clipboard-3.0.1.tgz}
+    name: copy-text-to-clipboard
+    version: 3.0.1
+    engines: {node: '>=12'}
+    dev: false
+
   registry.npmmirror.com/copy-webpack-plugin/5.1.2_webpack@4.46.0:
     resolution: {integrity: sha512-Uh7crJAco3AjBvgAy9Z75CjK8IG+gxaErro71THQ+vv/bl4HaQcpkexAY8KVW/T6D2W2IRr+couF/knIRkZMIQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/copy-webpack-plugin/-/copy-webpack-plugin-5.1.2.tgz}
     id: registry.npmmirror.com/copy-webpack-plugin/5.1.2
@@ -7701,6 +7710,12 @@ packages:
       thunky: registry.npmmirror.com/thunky/1.1.0
     dev: true
 
+  registry.npmmirror.com/mutation-observer/1.0.3:
+    resolution: {integrity: sha512-M/O/4rF2h776hV7qGMZUH3utZLO/jK7p8rnNgGkjKUw8zCGjRQPxB8z6+5l8+VjRUQ3dNYu4vjqXYLr+U8ZVNA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mutation-observer/-/mutation-observer-1.0.3.tgz}
+    name: mutation-observer
+    version: 1.0.3
+    dev: false
+
   registry.npmmirror.com/mute-stream/0.0.8:
     resolution: {integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mute-stream/-/mute-stream-0.0.8.tgz}
     name: mute-stream
@@ -11025,6 +11040,16 @@ packages:
     version: 1.1.2
     engines: {node: '>= 0.8'}
     dev: true
+
+  registry.npmmirror.com/vconsole/3.12.1:
+    resolution: {integrity: sha512-L4lN8rRBz8+O56k6FNE0qQ89fE3T3VwoehpcwpbQcmOKTqREJi+d8V6gfyes4TZS0K2dbCZsModcssriaL0ALQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vconsole/-/vconsole-3.12.1.tgz}
+    name: vconsole
+    version: 3.12.1
+    dependencies:
+      copy-text-to-clipboard: registry.npmmirror.com/copy-text-to-clipboard/3.0.1
+      core-js: registry.npmmirror.com/core-js/3.21.1
+      mutation-observer: registry.npmmirror.com/mutation-observer/1.0.3
+    dev: false
 
   registry.npmmirror.com/vendors/1.0.4:
     resolution: {integrity: sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vendors/-/vendors-1.0.4.tgz}
