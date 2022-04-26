@@ -1,3 +1,3 @@
-const BASE_URL = '/api/v2/syjsb/expense/claim'
+const BASE_URL = ''
 
 export { BASE_URL }
