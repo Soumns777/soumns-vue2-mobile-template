@@ -63,8 +63,6 @@ instance.interceptors.response.use((response) => {
     }else {
       return Promise.reject(error)
     }
-
-
   }
 
 export { instance }

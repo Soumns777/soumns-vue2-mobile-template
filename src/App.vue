@@ -1,11 +1,30 @@
 <template>
   <div id="app">
+    <button @click="init">点击</button>
     <router-view />
   </div>
 </template>
 
 <script>
-export default {}
+import { soumnsGet } from '@/libs/SHttp'
+
+export default {
+  methods: {
+    init() {
+      soumnsGet({
+        url: '/mock',
+        data: {
+          userName: 'iu',
+          password: '123'
+        }
+      }).then((res) => console.log(res, 'setup data 💙💛'))
+      // .catch((err) => console.log(err.message, '真的错了'))
+    }
+  },
+  created() {
+    // this.init()
+  }
+}
 </script>
 
 <style lang="scss">

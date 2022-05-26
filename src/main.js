@@ -7,15 +7,17 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 
 // 引入Vconsole
-import Vconsole from 'vconsole'
-const vConsole = new Vconsole()
+// import Vconsole from 'vconsole'
+// const vConsole = new Vconsole()
+// Vue.use(vConsole)
+
 import iphoneXBottom from '@/mixins/iphoneXBottomSetAside'
 
 Vue.config.productionTip = false
 
 // mixin处理iphone的底部
 Vue.mixin(iphoneXBottom)
-Vue.use(vConsole)
+
 Vue.use(Vant)
 
 new Vue({
