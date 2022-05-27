@@ -1,24 +1,42 @@
 <template>
   <div id="app">
-    <button @click="init">点击</button>
+    <button @click="init">init</button>
+
+    <button @click="setup">setup</button>
     <router-view />
   </div>
 </template>
 
 <script>
 import { soumnsGet } from '@/libs/SHttp'
+import { axiosGet } from './services/request'
 
 export default {
   methods: {
-    init() {
-      soumnsGet({
+    async init() {
+      const res = await soumnsGet({
         url: '/mock',
         data: {
           userName: 'iu',
           password: '123'
         }
-      }).then((res) => console.log(res, 'setup data 💙💛'))
-      // .catch((err) => console.log(err.message, '真的错了'))
+      })
+
+      console.log(res, '💙💛 soumnsGet data')
+    },
+    async setup() {
+      try {
+        const res = await axiosGet({
+          url: '/mock',
+          data: {
+            userName: 'iu',
+            password: '123'
+          }
+        })
+        console.log(res, '💙💛 axiosGet data')
+      } catch (error) {
+        console.log(error, 'error')
+      }
     }
   },
   created() {

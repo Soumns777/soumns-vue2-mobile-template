@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   publicPath: './',
-  productionSourceMap: false, // 是否生产sourceMap
+  productionSourceMap: true, // 是否生产sourceMap
   outputDir: 'dist/www', // 生成的生产环境
   devServer: {
     open: true,
