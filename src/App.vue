@@ -25,18 +25,26 @@ export default {
       console.log(res, '💙💛 soumnsGet data')
     },
     async setup() {
-      try {
-        const res = await axiosGet({
-          url: '/mock',
-          data: {
-            userName: 'iu',
-            password: '123'
-          }
-        })
-        console.log(res, '💙💛 axiosGet data')
-      } catch (error) {
-        console.log(error, 'error')
-      }
+      // try {
+      //   const res = await axiosGet({
+      //     url: '/mock',
+      //     data: {
+      //       userName: 'iu',
+      //       password: '123'
+      //     }
+      //   })
+      //   console.log(res, '💙💛 axiosGet data')
+      // } catch (error) {
+      //   console.log(error, '💙💛 error')
+      // }
+      const res = await axiosGet({
+        url: '/mock',
+        data: {
+          userName: 'iu',
+          password: '123'
+        }
+      })
+      console.log(res, '💙💛 axiosGet data')
     }
   },
   created() {

@@ -14,7 +14,7 @@ switch (process.env.NODE_ENV) {
 }
 
 // 取消请求
-let cancal
+// let cancal
 
 /*
  * create instance
@@ -31,10 +31,10 @@ const instance = axios.create({
  */
 instance.interceptors.request.use((config) => {
   // doing something before request
-  if (cancal) cancal('cancel')
-  config.cancelToken = new CancelToken((c) => {
-    cancal = c
-  })
+  // if (cancal) cancal('cancel')
+  // config.cancelToken = new CancelToken((c) => {
+  //   cancal = c
+  // })
 
   return config
 }),
@@ -51,11 +51,11 @@ instance.interceptors.request.use((config) => {
 
     console.log(error.message, '💙💛 catch error')
 
-    if (isCancel(error)) {
-      console.log(error.message)
-    } else {
-      return Promise.reject(error)
-    }
+    // if (isCancel(error)) {
+    //   console.log(error.message)
+    // } else {
+    //   return Promise.reject(error)
+    // }
   }
 
 export { instance }
