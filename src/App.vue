@@ -1,20 +1,19 @@
 <template>
   <div id="app">
-    <button @click="init">init</button>
+    <button @click="init">get</button>
+    <button @click="setup">post</button>
 
-    <button @click="setup">setup</button>
     <router-view />
   </div>
 </template>
 
 <script>
-import { soumnsGet } from '@/libs/SHttp'
-import { axiosGet } from './services/request'
+import soumnsHttp from './libs/http'
 
 export default {
   methods: {
     async init() {
-      const res = await soumnsGet({
+      const res = await soumnsHttp.get({
         url: '/mock',
         data: {
           userName: 'iu',
@@ -22,34 +21,21 @@ export default {
         }
       })
 
-      console.log(res, '💙💛 soumnsGet data')
+      console.log(res, '💙💛 get data')
     },
     async setup() {
-      // try {
-      //   const res = await axiosGet({
-      //     url: '/mock',
-      //     data: {
-      //       userName: 'iu',
-      //       password: '123'
-      //     }
-      //   })
-      //   console.log(res, '💙💛 axiosGet data')
-      // } catch (error) {
-      //   console.log(error, '💙💛 error')
-      // }
-      const res = await axiosGet({
+      const res = await soumnsHttp.post({
         url: '/mock',
         data: {
-          userName: 'iu',
-          password: '123'
+          userName: 'yoona',
+          password: '3033817'
         }
       })
-      console.log(res, '💙💛 axiosGet data')
+
+      console.log(res, '💙💛 post data')
     }
   },
-  created() {
-    // this.init()
-  }
+  created() {}
 }
 </script>
 

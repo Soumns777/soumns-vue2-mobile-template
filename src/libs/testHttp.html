@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Honey!❤🎈</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js"></script>
+  </head>
+  <body>
+    <button>点击测试</button>
+
+    <script>
+      const { CancelToken, isCancel } = axios
+
+      let cancal
+
+      axios.interceptors.request.use((config) => {
+        // 重复点击取消请求
+        if (cancal) cancal('取消请求了!')
+        config.cancelToken = new CancelToken((c) => {
+          cancal = c
+        })
+
+        return config
+      })
+
+      axios.interceptors.response.use(
+        (response) => {
+          // doing something when get response data
+
+          return response.data
+        },
+        (error) => {
+          // doing something when response error
+
+          if (isCancel(error)) {
+            console.log(error.message, '💙💛 用户取消了请求')
+          } else {
+            console.log(error, '💙💛 报错了亲')
+          }
+
+          //   return Promise.reject(error)
+          return new Promise(() => {})
+        }
+      ),
+        // 点击事件
+        (document.querySelector('button').onclick = async () => {
+          // const res = await axios({
+          //   url: 'http://localhost:3000/mock',
+          //   method: 'get',
+          //   params: {
+          //     user: 'iu',
+          //     age: 18
+          //   }
+          // })
+          const res = await axios.get('http://localhost:3000/mock')
+          console.log(res, '💙💛 get data')
+        })
+    </script>
+  </body>
+</html>

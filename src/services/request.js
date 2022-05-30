@@ -21,12 +21,21 @@ function axiosPost(options) {
 }
 
 function axiosGet(options) {
-  return $http({
-    url: options.url,
-    method: 'get',
-    params: {
-      ...options.data
-    }
+  return new Promise(() => {
+    $http({
+      url: options.url,
+      method: 'get',
+      params: {
+        ...options.data,
+        key: JUHE_KEY
+      }
+    })
+      .then((res) => {
+        options.success(res)
+      })
+      .catch((err) => {
+        options.error(err)
+      })
   })
 }
 

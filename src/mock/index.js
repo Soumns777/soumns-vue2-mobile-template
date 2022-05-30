@@ -18,7 +18,16 @@ app.get('/mock', (req, res) => {
   console.log(req.body, '-->从前台获取的数据')
   res.send({
     status: 200,
-    msg: '搜索成功',
+    msg: 'get成功',
+    RESULT_MES: '成功'
+  })
+})
+
+app.post('/mock', (req, res) => {
+  console.log(req.body, '-->从前台获取的数据')
+  res.send({
+    status: 200,
+    msg: 'post成功',
     RESULT_MES: '成功'
   })
 })
