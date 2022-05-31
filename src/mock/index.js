@@ -14,8 +14,8 @@ app.use(express.json())
 //配置中间件解析post application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/mock', (req, res) => {
-  console.log(req.body, '-->从前台获取的数据')
+app.get('/getMock', (req, res) => {
+  console.log(req.query, '-->get从前台获取的数据')
   res.send({
     status: 200,
     msg: 'get成功',
@@ -23,8 +23,8 @@ app.get('/mock', (req, res) => {
   })
 })
 
-app.post('/mock', (req, res) => {
-  console.log(req.body, '-->从前台获取的数据')
+app.post('/postMock', (req, res) => {
+  console.log(req.body, '-->post从前台获取的数据')
   res.send({
     status: 200,
     msg: 'post成功',

@@ -1,42 +1,36 @@
-import { instance as $http } from '@/libs/http'
-import { JUHE_KEY } from '@/libs/key'
+/**
+ * 封装的请求api
+ */
 
-function axiosPost(options) {
-  return new Promise(() => {
-    $http({
-      url: options.url,
-      method: 'post',
-      data: {
-        ...options.data,
-        key: JUHE_KEY
-      }
-    })
-      .then((res) => {
-        options.success(res)
-      })
-      .catch((err) => {
-        options.error(err)
-      })
-  })
+import soumnsHttp from '@/libs/http'
+
+/**
+ * @method getMock
+ * @param 无
+ * @returns
+ * {
+ *  RESULT_MES {string }
+ *  msg {string}
+ *  status {number}
+ * }
+ * @desc 测试封装api的get请求
+ */
+
+export const getMock = (params) => {
+  return soumnsHttp.get('/getMock', params)
 }
 
-function axiosGet(options) {
-  return new Promise(() => {
-    $http({
-      url: options.url,
-      method: 'get',
-      params: {
-        ...options.data,
-        key: JUHE_KEY
-      }
-    })
-      .then((res) => {
-        options.success(res)
-      })
-      .catch((err) => {
-        options.error(err)
-      })
-  })
+/**
+ * @method postMock
+ * @param 无
+ * @returns
+ * {
+ *  RESULT_MES {string }
+ *  msg {string}
+ *  status {number}
+ * }
+ * @desc 测试封装api的post请求
+ */
+export const postMock = (params) => {
+  return soumnsHttp.post('/postMock', params)
 }
-
-export { axiosPost, axiosGet }
