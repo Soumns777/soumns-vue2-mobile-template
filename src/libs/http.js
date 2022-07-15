@@ -1,133 +1,78 @@
-import axios, { CancelToken, isCancel } from 'axios'
-import { Toast } from 'vant'
+import axios from 'axios'
+import { AxiosCanceler } from './helper/axiosCancel'
 
-class SoumnsHttp {
-  cancal = ''
+import { checkStatus } from './helper/checkStatus'
+
+const axiosCanceler = new AxiosCanceler()
+
+const config = {
+  // 默认地址
+  baseURL: 'http://localhost:3001',
+  // 设置超时时间（10s）
+  timeout: '10000',
+  // 跨域时候允许携带凭证(需要后台配置)
+  withCredentials: true
+}
+
+class RequestHttp {
+  service
   constructor(config) {
-    this.config = config
-  }
+    // 实例化axios
+    this.service = axios.create(config)
 
-  setupIntercetors(instance) {
-    instance.interceptors.request.use((config) => {
-      // Toast加载提示
-      Toast.loading({
-        duration: 0,
-        forbidClick: true,
-        message: '数据加载中...'
-      })
-      // 重复点击取消请求
-      if (SoumnsHttp.cancal) SoumnsHttp.cancal('取消请求了!')
-      config.cancelToken = new CancelToken((c) => {
-        SoumnsHttp.cancal = c
-      })
-
-      return config
-    }),
-      (error) => {
-        Toast.fail('请求超时!')
-
-        return Promise.resolve(error)
-      }
-
-    instance.interceptors.response.use(
-      (response) => {
-        // doing something when get response data
-        Toast.clear()
-
-        return response.data
+    /**
+     * @description 请求拦截器
+     * 客户端发送请求 -> [请求拦截器] -> 服务器
+     * token校验(JWT) : 接受服务器返回的token,存储到vuex/本地储存当中
+     */
+    this.service.interceptors.request.use(
+      (config) => {
+        // * 将当前请求添加到 pending 中
+        axiosCanceler.addPending(config)
+        return { ...config }
       },
       (error) => {
-        if (isCancel(error)) {
-          console.log('💙💛 用户取消了请求', error.message)
-          Toast.fail('取消请求成功!')
-        } else if (error && error.response) {
-          switch (error.response.status) {
-            case 400:
-              error.message = '错误请求'
-              break
-            case 401:
-              error.message = '未授权，请重新登录'
-              break
-            case 403:
-              error.message = '拒绝访问'
-              break
-            case 404:
-              error.message = '请求错误,未找到该资源'
-              break
-            case 405:
-              error.message = '请求方法未允许'
-              break
-            case 408:
-              error.message = '请求超时'
-              break
-            case 500:
-              error.message = '服务器端出错'
-              break
-            case 501:
-              error.message = '网络未实现'
-              break
-            case 502:
-              error.message = '网络错误'
-              break
-            case 503:
-              error.message = '服务不可用'
-              break
-            case 504:
-              error.message = '网络超时'
-              break
-            case 505:
-              error.message = 'http版本不支持该请求'
-              break
-            default:
-              error.message = `连接错误${error.response.status}`
-          }
+        return Promise.reject(error)
+      }
+    )
 
-          Toast.fail(error.message)
-        } else {
-          Toast.fail('未知错误!')
-        }
+    /**
+     * @description 响应拦截器
+     *  服务器换返回信息 -> [拦截统一处理] -> 客户端JS获取到信息
+     */
+    this.service.interceptors.response.use(
+      (response) => {
+        const { data, config } = response
+        // * 在请求结束后，移除本次请求
+        axiosCanceler.removePending(config)
 
-        // doing something when response error
-        return Promise.resolve(error)
+        // * 成功请求
+        return data
+      },
+      async (error) => {
+        const { response } = error
+        // 根据响应的错误状态码，做不同的处理
+        if (response) return checkStatus(response.status)
+        // 服务器结果都没有返回(可能服务器错误可能客户端断网)，断网处理:可以跳转到断网页面
+        // if (!window.navigator.onLine) return router.replace({ path: '/500' });
+        return Promise.reject(error)
       }
     )
   }
 
-  request(options) {
-    let instance = axios.create()
-    options = Object.assign(this.config, options)
-    this.setupIntercetors(instance)
-
-    return instance(options)
+  // * 常用请求方法封装
+  get(url, params, _object = {}) {
+    return this.service.get(url, { params, ..._object })
   }
-
-  get(url, options) {
-    return this.request({
-      method: 'get',
-      url,
-      params: {
-        ...options
-      }
-    })
+  post(url, params, _object = {}) {
+    return this.service.post(url, params, _object)
   }
-
-  post(url, options) {
-    return this.request({
-      method: 'post',
-      url,
-      data: {
-        ...options
-      }
-    })
+  put(url, params, _object = {}) {
+    return this.service.put(url, params, _object)
+  }
+  delete(url, params, _object = {}) {
+    return this.service.delete(url, { params, ..._object })
   }
 }
 
-let soumnsHttp = new SoumnsHttp({
-  baseURL: 'http://localhost:3000',
-  timeout: '10000',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-})
-
-export default soumnsHttp
+export default new RequestHttp(config)

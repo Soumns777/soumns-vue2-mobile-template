@@ -1,35 +1,31 @@
 <template>
-  <div id="app">
-    <button @click="init">get</button>
-    <button @click="setup">post</button>
-  </div>
+  <div class="container"></div>
 </template>
 
 <script>
-import { getMock, postMock } from '@/services/request'
-
+import { uploadImgs } from '@/services/request'
 export default {
-  name: 'testApi',
-  methods: {
-    async init() {
-      const res = await getMock({
-        userName: 'yoona',
-        password: '123'
-      })
-
-      console.log(res, '💙💛 getMock')
-    },
-    async setup() {
-      const res = await postMock({
-        name: 'iu',
-        age: 18
-      })
-
-      console.log(res, '💙💛 postMock')
-    }
+  name: '',
+  data() {
+    return {}
   },
-  created() {}
+  mounted() {
+    this.uploadImgs()
+  },
+  methods: {
+    /**
+     * 上传图片示例
+     */
+    async uploadImgs() {
+      let formData = new FormData()
+      formData.append('uName', 'iu')
+      formData.append('age', '17')
+
+      const res = await uploadImgs(formData)
+      console.log(res, '💛💙 上传图片')
+    }
+  }
 }
 </script>
 
-<style lang="scss"></style>
+<style scoped lang="scss"></style>

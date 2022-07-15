@@ -3,34 +3,16 @@
  */
 
 import soumnsHttp from '@/libs/http'
+import { FORM_DATA_HEADER } from '@/utils/constant'
 
 /**
- * @method getMock
- * @param 无
- * @returns
- * {
- *  RESULT_MES {string }
- *  msg {string}
- *  status {number}
- * }
- * @desc 测试封装api的get请求
+ * 上传图片
  */
 
-export const getMock = (params) => {
-  return soumnsHttp.get('/getMock', params)
+export const uploadImgs = (params) => {
+  return soumnsHttp.post('/api/upload-images', params, FORM_DATA_HEADER)
 }
 
-/**
- * @method postMock
- * @param 无
- * @returns
- * {
- *  RESULT_MES {string }
- *  msg {string}
- *  status {number}
- * }
- * @desc 测试封装api的post请求
- */
-export const postMock = (params) => {
-  return soumnsHttp.post('/postMock', params)
+export const Login = (params) => {
+  return soumnsHttp.get('/api/login', params)
 }
